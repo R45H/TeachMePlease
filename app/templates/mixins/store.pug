@@ -1,14 +1,15 @@
-mixin store(data)
-	.store
+mixin store(data, advBlock)
+	.store(class= advBlock ? advBlock.panel : '')
 
-		.store__img-wrap
+		.store__img-wrap(class= advBlock ? advBlock.body : '')
 			.store__img
 
-		h2.store__title= data.title
-		.store__content
+		h2.store__title(class= advBlock ? advBlock.title : '')= data.title
+		.store__content(class= advBlock ? advBlock.body : '')
+			.store__content-i
 
-			each val in data.addresses
-				p.store__text!= val
+				each val in data.addresses
+					p.store__text!= val
 
-			p.store__text
-				a(href= 'tel:' + data.tel_link)= data.tel
+				p.store__text
+					a(href= 'tel:' + data.tel_link)= data.tel

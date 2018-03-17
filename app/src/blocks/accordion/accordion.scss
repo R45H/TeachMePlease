@@ -1,0 +1,70 @@
+$name: accordion;
+
+.#{$name} {
+
+	&__title {
+
+		@include screen-sm(max) {
+			display: flex;
+			justify-content: space-between;
+			cursor: pointer;
+			position: relative;
+		}
+
+		&::before {
+
+			@include screen-sm(max) {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 2em;
+				right: 2em;
+				height: 2px;
+				background: $color-gray;
+				transition: .3s ease;
+			}
+		}
+
+		&::after {
+
+			@include screen-sm(max) {
+				content: '\f107';
+				font-family: $font-fa;
+				margin-right: 1em;
+				transition: .3s ease transform;
+			}
+		}
+
+		&:hover {
+
+			@include screen-sm(max) {
+				font-weight: bold;
+			}
+		}
+
+		&_opened {
+
+			&::before {
+
+				@include screen-sm(max) {
+					height: 0;
+				}
+			}
+
+			&::after {
+
+				@include screen-sm(max) {
+					transform: rotate(-180deg);
+				}
+			}
+		}
+	}
+
+	&__body {
+
+		@include screen-sm(max) {
+			display: none;
+		}
+	}
+}

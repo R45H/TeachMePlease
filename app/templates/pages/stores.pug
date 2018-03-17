@@ -2,6 +2,12 @@ include ../mixins/store
 
 .container
 
-	each val in store
-		.main__store-wrap
-			+store(val)
+	.accordion
+
+		each val in store
+			.main__store-wrap
+				+store(val, {
+					panel: 'accordion__panel',
+					title: 'accordion__title',
+					body: 'accordion__body'
+				})

@@ -55,10 +55,16 @@ $name: store;
 	&__content {
 
 		@include screen-sm(max) {
-			display: flex;
-			flex-wrap: wrap;
 			padding: 2em 0;
 			order: 1;
+		}
+	}
+
+	&__content-i {
+
+		@include screen-sm(max) {
+			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 

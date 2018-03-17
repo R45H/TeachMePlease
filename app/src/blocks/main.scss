@@ -4,6 +4,9 @@ $name: main;
 	padding: 5rem 0;
 
 	&__store-wrap {
-		margin-bottom: 2em;
+
+		@include screen-sm() {
+			margin-bottom: 2em;
+		}
 	}
 }
