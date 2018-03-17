@@ -1,0 +1,11 @@
+extends layouts/default
+
+block vars
+	-
+		page = {
+			title: 'Магазины',
+			link: global[0].link_home
+		}
+
+block content
+	include pages/stores

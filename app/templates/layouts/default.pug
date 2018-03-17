@@ -1,0 +1,12 @@
+block vars
+
+doctype html
+html(lang="ru")
+	head
+		block head
+			include ../partials/head
+
+		title #{page.title} | #{global[0].name}
+	body
+		main.main
+			block content
