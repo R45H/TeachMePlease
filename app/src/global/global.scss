@@ -14,6 +14,7 @@ body {
 	font-family: $font-main;
 	color: $color-text;
 	line-height: 1.4;
+	letter-spacing: 1px;
 }
 
 input,
@@ -44,6 +45,11 @@ p {
 
 ul {
 	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: $color-text;
 }
 
 .container {

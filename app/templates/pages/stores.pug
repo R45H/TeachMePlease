@@ -1,0 +1,7 @@
+include ../mixins/store
+
+.container
+
+	each val in store
+		.main__store-wrap
+			+store(val)

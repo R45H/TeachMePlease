@@ -9,6 +9,14 @@ $point-lg: 992px;
 $point-xl: 1200px;
 
 $font-main: 'HelveticaNeue', sans-serif;
+$font-fa: 'FontAwesome', sans-serif;
+
+%clear {
+	content: '';
+	display: table;
+	width: 100%;
+	clear: both;
+}
 
 // Брейкпоинты
 @mixin screen-sm($direct: 'min') {

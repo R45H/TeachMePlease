@@ -1,0 +1,14 @@
+mixin store(data)
+	.store
+
+		.store__img-wrap
+			.store__img
+
+		h2.store__title= data.title
+		.store__content
+
+			each val in data.addresses
+				p.store__text!= val
+
+			p.store__text
+				a(href= 'tel:' + data.tel_link)= data.tel

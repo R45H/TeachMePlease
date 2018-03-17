@@ -1,0 +1,75 @@
+$name: store;
+
+.#{$name} {
+	display: flex;
+	flex-direction: column;
+
+	@include screen-sm() {
+		display: block;
+	}
+
+	&::after {
+		@extend %clear;
+	}
+
+	&__img-wrap {
+
+		@include screen-sm() {
+			width: 60%;
+			float: left;
+		}
+
+		@include screen-sm(max) {
+			order: 1;
+		}
+	}
+
+	&__img {
+		padding-bottom: 66%;
+		background: $color-gray;
+		border: 1px solid $color-darkgray;
+	}
+
+	&__title,
+	&__content {
+
+		@include screen-sm() {
+			width: 40%;
+			float: left;
+		}
+	}
+
+	&__title {
+		font-size: 1.1rem;
+		font-weight: normal;
+		padding: 1em 2em;
+		margin: 0;
+
+		@include screen-sm() {
+			margin-bottom: 1em;
+			font-weight: bold;
+			padding: 0 2em;
+		}
+	}
+
+	&__content {
+
+		@include screen-sm(max) {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 2em 0;
+			order: 1;
+		}
+	}
+
+	&__text {
+		display: block;
+		color: $color-text;
+		padding: 0 2em;
+		margin-bottom: 1em;
+
+		@include screen-sm(max) {
+			width: 50%;
+		}
+	}
+}
