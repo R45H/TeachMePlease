@@ -1,0 +1,35 @@
+$name: coupon;
+
+.#{$name} {
+
+	&__title {
+		text-align: center;
+
+		@include screen-sm() {
+			text-align: left;
+			display: inline-block;
+			margin-right: 2rem;
+			vertical-align: middle;
+		}
+	}
+
+	&__input {
+		margin-bottom: 1rem;
+		width: 100%;
+		text-align: center;
+		font-family: $font-main;
+		letter-spacing: 1px;
+		line-height: 1.4;
+		padding: .5em;
+		border: 2px solid transparent;
+		border-bottom-color: $color-darkgray;
+
+		@include screen-sm() {
+			margin-right: 2rem;
+			display: inline-block;
+			width: auto;
+			border-width: 1px;
+			border-bottom-color: inherit;
+		}
+	}
+}

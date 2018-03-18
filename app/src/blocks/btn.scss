@@ -1,0 +1,27 @@
+$name: btn;
+
+.#{$name} {
+	display: block;
+	width: 100%;
+	border: 2px solid $color-darkgray;
+	background-color: transparent;
+	text-align: center;
+	font-family: $font-main;
+	letter-spacing: 1px;
+	line-height: 1.4;
+	cursor: pointer;
+	outline: none;
+	padding: .5em 3em;
+	word-break: break-word;
+	transition: .3s ease;
+
+	@include screen-sm() {
+		border: 1px solid;
+		display: inline-block;
+		width: auto;
+	}
+
+	&:hover {
+		color: $color-darkgray;
+	}
+}
