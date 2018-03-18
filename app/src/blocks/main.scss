@@ -13,11 +13,4 @@ $name: main;
 	&__gap-bot {
 		margin-bottom: 2rem;
 	}
-
-	&__basket-wrap {
-
-		@include screen-md(max) {
-			margin-bottom: 2rem;
-		}
-	}
 }

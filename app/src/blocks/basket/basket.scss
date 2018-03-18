@@ -67,6 +67,10 @@ $name: basket;
 
 			td {
 				border-bottom: none;
+
+				@include screen-md() {
+					padding-bottom: 0;
+				}
 			}
 		}
 	}
