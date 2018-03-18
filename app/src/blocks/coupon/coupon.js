@@ -30,6 +30,7 @@ var methods = {
 					$btn
 						.addClass('coupon__btn_disabled')
 						.val('купон активирован')
+						.attr('data-discount', val.discount)
 						.trigger('activated.coupon');
 				}
 			});

@@ -14,7 +14,7 @@
 					th!= val
 
 			each val in basket
-				tr.basket__item
+				tr.basket__item(data-price= val.price)
 
 					td.basket__img-wrap
 						.basket__img
@@ -30,7 +30,7 @@
 						span.basket__sm-cell-title!= header[2]
 						span.amount
 							span.amount__btn.amount__btn_minus
-							input(type='text' value='1').amount__input
+							input(type='text' value='1').amount__input.basket__amount
 							span.amount__btn.amount__btn_plus
 
 					td.basket__sm-cell
@@ -39,7 +39,9 @@
 
 					td.basket__sm-cell
 						span.basket__sm-cell-title!= header[4]
-						span.basket__discount 00%
+						span
+							span.basket__discount 00
+							span %
 
 					td.basket__sm-cell
 						span.basket__sm-cell-title Итого
