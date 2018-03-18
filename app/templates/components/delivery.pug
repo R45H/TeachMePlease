@@ -1,0 +1,38 @@
+.delivery
+
+	.delivery__total.delivery__total_goods-only
+		.delivery__total-line
+		.delivery__total-desc Итого:
+		.delivery__total-price-wrap
+			.delivery__total-price 0000
+			.delivery__total-currency &#8381;
+
+	.delivery__table
+		p.delivery__main-title Способ доставки
+
+		each val, i in delivery
+			input.delivery__radio(
+				type='radio'
+				name='radio'
+				id='radio' + (i + 1)
+				value='radio' + (i + 1)
+			)
+			label.delivery__label(for='radio' + (i + 1))
+
+				span.delivery__col.delivery__col_first
+					span.delivery__title= val.title
+					span.delivery__desc!= val.desc
+
+				span.delivery__col.delivery__col_price
+					span.delivery__price= val.price
+					span.delivery__currency &#8381;
+
+				span.delivery__col
+					span.delivery__marker
+
+	.delivery__total
+		.delivery__total-line
+		.delivery__total-desc Итого:
+		.delivery__total-price-wrap
+			.delivery__total-price 00000
+			.delivery__total-currency &#8381;
