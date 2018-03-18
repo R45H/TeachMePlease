@@ -32,4 +32,18 @@ $name: coupon;
 			border-bottom-color: inherit;
 		}
 	}
+
+	&__btn {
+
+		&_disabled {
+			cursor: default;
+			border-color: $color-text-light;
+			color: $color-text-light;
+
+			&:hover {
+				border-color: $color-text-light;
+				color: $color-text-light;
+			}
+		}
+	}
 }

@@ -7,28 +7,28 @@ var methods = {
 
 		var config = $.extend({}, defaults, options);
 
-		return this.each(function() {
+		var
+			$block = this,
+			$items = $block.find('.basket__item');
+
+		$items.each(function() {
 			var
-				$block = $(this),
-				$items = $block.find('.basket__item');
+				$item = $(this),
+				$removeBtn = $item.find('.basket__remove');
 
-			$items.each(function() {
-				var
-					$item = $(this),
-					$removeBtn = $item.find('.basket__remove');
-
-				/* Обработка нажатия на кнопку «Удалить» */
-				$removeBtn.on('click', function() {
-					$item
-						.fadeOut(config.removeDelay, function() {
-							$(this)
-								.trigger('itemremoved.basket')
-								.remove();
-						});
-				});
-				/* ===================================== */
+			/* Обработка нажатия на кнопку «Удалить» */
+			$removeBtn.on('click', function() {
+				$item
+					.fadeOut(config.removeDelay, function() {
+						$(this)
+							.trigger('itemremoved.basket')
+							.remove();
+					});
 			});
+			/* ===================================== */
 		});
+
+		return this;
 	}
 };
 

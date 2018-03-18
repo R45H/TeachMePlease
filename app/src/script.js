@@ -10,6 +10,10 @@
 	//=require 'blocks/basket/basket.js'
 }(jQuery));
 
+(function($) {
+	//=require 'blocks/coupon/coupon.js'
+}(jQuery));
+
 /* Blocks will be inserted here */
 
 $(function() {
