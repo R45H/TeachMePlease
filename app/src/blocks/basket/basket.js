@@ -10,7 +10,10 @@ var methods = {
 		var
 			$block = this,
 			$items = $block.find('.basket__item'),
-			$coupon = $block.find('.basket__coupon');
+			$coupon = $block.find('.basket__coupon'),
+			$deliveryRadio = $block.find('.basket__radio');
+
+		refreshPrice();
 
 		$items.each(function() {
 			var
@@ -22,9 +25,8 @@ var methods = {
 			$removeBtn.on('click', function() {
 				$item
 					.fadeOut(config.removeDelay, function() {
-						$(this)
-							.trigger('itemremoved.basket')
-							.remove();
+						$(this).remove();
+						refreshPrice();
 					});
 			});
 			/* ===================================== */
@@ -34,6 +36,12 @@ var methods = {
 				refreshItemPrice($item);
 			});
 			/* ================================================== */
+
+			/* Обновление общей цены при изменении цены карточки */
+			$item.on('refreshedprice.basket', function() {
+				refreshPrice();
+			});
+			/* ================================================= */
 		});
 
 		/* Заносим скидку в карточки */
@@ -57,6 +65,12 @@ var methods = {
 		});
 		/* =============================================== */
 
+		/* Обновление общей цены при изменении способа доставки */
+		$deliveryRadio.on('change', function() {
+			refreshPrice();
+		});
+		/* ==================================================== */
+
 		/* Функция обновления цен у карточки */
 		function refreshItemPrice($item, callback) {
 			callback = callback || function(){};
@@ -76,6 +90,36 @@ var methods = {
 			callback();
 		}
 		/* ========================= */
+
+		/* Функция обновления общей цены */
+		function refreshPrice() {
+			var
+				result = 0,
+				$result = $('.delivery__total_goods-only .delivery__total-price'),
+				$resultWithDelivery = $('.delivery__total:not(.delivery__total_goods-only) .delivery__total-price'),
+				deliveryPrice = +$block
+					.find('.delivery__radio:checked')
+					.next()
+					.find('.delivery__price')
+					.text();
+
+			// Сбор цен с карточек
+			$block
+				.find('.basket__discount-price')
+				.each(function() {
+					result += +$(this).text();
+				});
+
+			// Обновление
+			$result.text(result);
+
+			if (result < 10000) {
+				result += deliveryPrice;
+			}
+
+			$resultWithDelivery.text(result);
+		}
+		/* ============================= */
 
 		return this;
 	}

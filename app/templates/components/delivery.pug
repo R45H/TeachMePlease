@@ -11,11 +11,12 @@
 		p.delivery__main-title Способ доставки
 
 		each val, i in delivery
-			input.delivery__radio(
+			input.delivery__radio.basket__radio(
 				type='radio'
 				name='radio'
 				id='radio' + (i + 1)
 				value='radio' + (i + 1)
+				checked= !i
 			)
 			label.delivery__label(for='radio' + (i + 1))
 
