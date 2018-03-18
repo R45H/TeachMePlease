@@ -1,0 +1,44 @@
+- var header = ['', 'Наименование товара', 'Количество', 'Цена/&#8381;', 'Скидка', 'Цена со скидкой', 'Удалить'];
+
+table.basket
+	tr.basket__header
+
+		each val in header
+			th!= val
+
+	each val in basket
+		tr.basket__item
+
+			td.basket__img-wrap
+				.basket__img
+
+			td.basket__name
+				span.basket__name-title Наименование
+				p= val.name
+				p= val.brand
+				p Размер: #{val.size}
+				p Артикул: #{val.vendor}
+
+			td.basket__sm-cell
+				span.basket__sm-cell-title!= header[2]
+				span.basket__amount
+					span.amount
+						span.amount__btn.amount__btn_minus
+						input(type='text' value='1').amount__input
+						span.amount__btn.amount__btn_plus
+
+			td.basket__sm-cell
+				span.basket__sm-cell-title!= header[3]
+				span.basket__price= val.price
+
+			td.basket__sm-cell
+				span.basket__sm-cell-title!= header[4]
+				span.basket__discount 00%
+
+			td.basket__sm-cell
+				span.basket__sm-cell-title Итого
+				span.basket__discount-price= val.price
+
+			td.basket__remove-wrap
+				span.basket__remove Удалить
+					span.basket__remove-icon

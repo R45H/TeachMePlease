@@ -1,0 +1,64 @@
+$name: amount;
+
+.#{$name} {
+	display: inline-flex;
+
+	&__btn {
+		width: 18px;
+		position: relative;
+		cursor: pointer;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			background: $color-darkgray;
+			position: absolute;
+			transition: .3s ease;
+		}
+
+		&::after {
+			height: 2px;
+			top: 50%;
+			left: 3px;
+			right: 3px;
+			transform: translateY(-50%);
+		}
+
+		&:hover {
+
+			&::before,
+			&::after {
+				background: $color-text;
+			}
+		}
+
+		&:active {
+
+			&::before,
+			&::after {
+				background: $color-darkgray;
+			}
+		}
+
+		&_plus {
+
+			&::before {
+				width: 2px;
+				top: 3px;
+				bottom: 3px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+
+	&__input {
+		border: none;
+		background: none;
+		width: 4rem;
+		text-align: center;
+		font-family: $font-main;
+		padding: 3px;
+	}
+}

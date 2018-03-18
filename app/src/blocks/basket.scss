@@ -1,0 +1,195 @@
+$name: basket;
+
+.#{$name} {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+
+	@include screen-md(max) {
+		display: block;
+	}
+
+	thead,
+	tbody {
+
+		@include screen-md(max) {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&__header {
+
+		@include screen-md(max) {
+			display: none;
+		}
+
+		th {
+			font-weight: normal;
+			padding: 1.5rem 1rem 0;
+			border-top: 2px solid $color-darkgray;
+
+			&:nth-child(2) {
+				text-align: left;
+			}
+		}
+	}
+
+	&__item {
+
+		@include screen-md(max) {
+			position: relative;
+			display: block;
+			margin-bottom: 2rem;
+		}
+
+		td {
+			padding: 2rem 1rem;
+			border-bottom: 2px solid $color-darkgray;
+
+			@include screen-md(max) {
+				display: block;
+				border: none;
+				padding: .5rem;
+			}
+
+			&:nth-child(2) {
+				text-align: left;
+			}
+		}
+
+		&:last-child {
+
+			@include screen-md(max) {
+				margin-bottom: 0;
+			}
+
+			td {
+				border-bottom: none;
+			}
+		}
+	}
+
+	&__img-wrap {
+		width: 10rem;
+
+		@include screen-md(max) {
+			float: left;
+			margin-right: 1rem;
+		}
+	}
+
+	&__img {
+		width: 100%;
+		padding-bottom: 140%;
+		background: $color-gray;
+		border: 1px solid $color-darkgray;
+	}
+
+	&__name {
+
+		&::after {
+			@extend %clear;
+		}
+	}
+
+	&__name-title {
+		display: none;
+
+		@include screen-md(max) {
+			display: block;
+			margin-bottom: 3rem;
+		}
+	}
+
+	&__sm-cell {
+
+		@include screen-md(max) {
+			float: left;
+			width: 25%;
+		}
+	}
+
+	&__sm-cell-title {
+		display: none;
+
+		@include screen-md(max) {
+			display: block;
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__remove-wrap {
+
+		@include screen-md(max) {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	&__remove {
+		cursor: pointer;
+		user-select: none;
+		align-items: center;
+		display: flex;
+
+		@include screen-md() {
+			font-size: 0;
+			display: inline-flex;
+		}
+
+		&:hover {
+
+			.#{$name}__remove-icon {
+				transform: scale(1.5);
+			}
+		}
+
+		&:active {
+
+			.#{$name}__remove-icon {
+				transform: none;
+			}
+		}
+	}
+
+	&__remove-icon {
+		position: relative;
+		width: 20px;
+		height: 20px;
+		transition: .3s ease;
+
+		@include screen-md(max) {
+			width: 10px;
+			height: 10px;
+			margin-left: .5rem;
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -5px;
+			width: 50%;
+			height: 1px;
+			background: $color-text;
+
+			@include screen-md(max) {
+				width: 100%;
+			}
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
+}

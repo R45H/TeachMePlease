@@ -1,0 +1,18 @@
+{
+	"basket": [
+		{
+			"name": "Женское / Джинсы RXX",
+			"brand": "Имя бренда",
+			"size": "XX",
+			"vendor": "RXXXXXXX-XXX",
+			"price": "5000"
+		},
+		{
+			"name": "Женское / Джинсы RXX",
+			"brand": "Имя бренда",
+			"size": "XX",
+			"vendor": "RXXXXXXX-XXX",
+			"price": "3000"
+		}
+	]
+}
